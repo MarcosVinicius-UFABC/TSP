@@ -499,8 +499,10 @@ for i in range(loops):
     random_results.append(random_result[1])
 
 print("\nResultados - Comparação entre métodos heurísticos\n")
-print("Média elitismo - ", np.mean(elitism_results))
-print("Média torneio - ", np.mean(tournament_results))
+print("Média elitismo - ", np.mean(elitism_results[:5]))
+print("Média torneio - ", np.mean(tournament_results[:5]))
+print("Média elitismo - ", np.mean(elitism_results[5:]))
+print("Média torneio - ", np.mean(tournament_results[5:]))
 
 ps = 50
 ep = 50
@@ -519,6 +521,8 @@ lg_time_elitism = timeit.timeit(lambda: population_loop_elitism(pop_size=ps, db_
 lg_time_tournament = timeit.timeit(lambda: population_loop_tournament(pop_size=ps, db_num_cities=num_cities, db_dist_mat=dist_mat, epochs=ep, survival_rate=sr, mut_prob=mp, seed=n), number= loops)
 
 print("\nTempo - Comparação de métodos heurísticos\n")
+print("Tempo elitismo - ", qk_time_elitism)
+print("Tempo torneio - ", qk_time_tournament)
 print("Tempo elitismo - ", lg_time_elitism)
 print("Tempo torneio - ", lg_time_tournament)
 
