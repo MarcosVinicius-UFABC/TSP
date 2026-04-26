@@ -282,18 +282,6 @@ n = 2783
 
 c = 1
 
-"""  Execução única"""
-
-"""el_boa, el_bgh, el_fm, el_lgr = population_loop_elitism(pop_size=ps, db_num_cities=num_cities, db_dist_mat=dist_mat, epochs=ep, survival_rate=sr, mut_prob=mp, seed=n)
-
-tor_boa, tor_bgh, tor_fm, tor_lgr = population_loop_tournament(pop_size=ps, db_num_cities=num_cities, db_dist_mat=dist_mat, epochs=ep, survival_rate=sr, mut_prob=mp, seed=n)
-
-random_result = random_permutations_tsp(population_size=ps, epochs=ep, seed=n, constant_correction=c)
-
-brute_result = brute_force_tsp(seed=n)
-
-print(el_boa[1], tor_boa[1], random_result[1], brute_result[1])"""
-
 """#  Comparação de resultados - Primeira análise
   Dados "artificiais" com 11 cidades - Feito para viabilizar a força bruta
 
@@ -312,8 +300,8 @@ n = 2783
 
 c = 1
 
-print("\n\n-----------------------------------------------------------\n\n")
-print("Valores razoáveis\n\n")
+print("\n\n-----------------------------------------------------------\n")
+print("Primeira análise\n")
 
 re_elitism_results = []
 re_tournament_results = []
@@ -359,8 +347,6 @@ n = 2783
 
 c = 1
 
-print("\n\n-----------------------------------------------------------\n\n")
-print("Valores exagerados\n\n")
 
 ex_elitism_results = []
 ex_tournament_results = []
@@ -395,8 +381,7 @@ print("Tempo bruto - ", time_brute)
 
 """Plot de gráficos"""
 
-print("\n\n-----------------------------------------------------------\n\n")
-print("Plot de gráficos razoáveis\n\n")
+print("Plot de gráficos razoáveis\n")
 
 re_time = [re_time_elitism, re_time_tournament, re_time_random, time_brute]
 re_mean = [np.mean(re_elitism_results), np.mean(re_tournament_results), np.mean(re_random_results), brute_result[1]]
@@ -412,8 +397,7 @@ for xi, yi, label in zip(re_time, re_mean, re_labels):
     plt.annotate(label, (xi, yi), xytext=(5, 5), textcoords="offset points")
 plt.show()
 
-print("\n\n-----------------------------------------------------------\n\n")
-print("Valores exagerados\n\n")
+print("Plot de gráficos exagerados\n")
 
 ex_time = [ex_time_elitism, ex_time_tournament, ex_time_random, time_brute]
 ex_mean = [np.mean(ex_elitism_results), np.mean(ex_tournament_results), np.mean(ex_random_results), brute_result[1]]
@@ -444,7 +428,7 @@ c = 1
 loops = 5
 
 print("\n\n-----------------------------------------------------------\n\n")
-print("Segunda análise - Comparação de métodos heurísticos com aleatório\n\n")
+print("Segunda análise - Comparação de métodos heurísticos com aleatório\n")
 
 elitism_results = []
 tournament_results = []
@@ -456,9 +440,6 @@ for i in range(loops):
   tournament_results.append(tor_boa[1])
   random_result = random_permutations_tsp(population_size=ps, epochs=ep, seed=n, constant_correction=c)
   random_results.append(random_result[1])
-
-print("\n\n-----------------------------------------------------------\n\n")
-print("Resultados da segunda análise\n\n")
 
 print("\nResultados - Comparação entre métodos heurísticos e aleatórios\n")
 print("Média elitismo - ", np.mean(elitism_results))
@@ -501,9 +482,8 @@ c = 1
 loops = 5
 
 print("\n\n-----------------------------------------------------------\n\n")
-print("Terceira análise - Comparação entre mecanismos de seleção\n\n")
+print("Terceira análise - Comparação entre mecanismos de seleção\n")
 
-print("\n\n-----------------------------------------------------------\n\n")
 print("Escala pequena - População com 50 genótipos e 50 épocas\n Escala grande - População com 500 genótipos e 500 épocas\n\n")
 
 elitism_results = []
