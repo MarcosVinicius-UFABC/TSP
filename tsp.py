@@ -201,7 +201,7 @@ def population_loop_elitism(pop_size = 50, db_num_cities = num_cities, db_dist_m
     pop = reproduce(pop_best, pop_size)
     pop = mutate(pop, mut_prob)
   last_gen_results = results
-  print("\nPopulação final de genótipos (elitismo)\n", pd.DataFrame(pop), "\n") # Print para verificação de convergência foi removido devido à quantidade de texto
+  #print("\nPopulação final de genótipos (elitismo)\n", pd.DataFrame(pop), "\n") # Print para verificação de convergência foi removido devido à quantidade de texto
   return curr_best, best_generation_result, fit_mean, last_gen_results
 
 #Loop de começo ao fim que retorna o melhor resultado obtido em formato [genótipo, r2], histórico de melhores geracionais e média do fitness
