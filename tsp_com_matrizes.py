@@ -513,8 +513,6 @@ for i in range(loops):
     elitism_results.append(el_boa[1])
     tor_boa, _, _, _ = population_loop_tournament(pop_size=ps, db_num_cities=num_cities, db_dist_mat=dist_mat, epochs=ep, survival_rate=sr, mut_prob=mp, seed=n)
     tournament_results.append(tor_boa[1])
-    random_result = random_permutations_tsp(population_size=ps, epochs=ep, seed=n, constant_correction=c)
-    random_results.append(random_result[1])
 
 print("\nResultados - Comparação entre métodos heurísticos\n")
 print("Média elitismo - ", np.mean(elitism_results[:5]))
